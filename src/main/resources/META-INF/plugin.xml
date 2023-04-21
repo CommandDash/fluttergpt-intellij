@@ -48,5 +48,20 @@
       <add-to-group group-id="ToolsMenu" anchor="first"/>
     </action>
 
+    <action id="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"
+            class="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"
+            text="API Repository from Postman JSON" description="Paste JSON to get a full repository class back.">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+    </action>
+    <action id="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint"
+            class="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint" text="Code from Blueprint"
+            description="Create full fledged classes and functions from blueprint">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+    </action>
+    <action id="ai.welltested.fluttergpt.tools.create.CreateWidgetFromDescription"
+            class="ai.welltested.fluttergpt.tools.create.CreateWidgetFromDescription"
+            text="Create: Widget from Description" description="Create custom widgets from specialized instructions.">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+    </action>
   </actions>
 </idea-plugin>

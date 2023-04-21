@@ -15,26 +15,23 @@ import com.intellij.psi.PsiDocumentManager
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.WriteCommandAction
 
-class CreateWidgetFromDescription : AnAction() {
+class CodeFromBlueprint : AnAction() {
     private val openAIRepo: OpenAIRepository = OpenAIRepository()
 
     override fun actionPerformed(e: AnActionEvent) {
         val editor = e.getData(PlatformCoreDataKeys.EDITOR) ?: return
         val project = e.project ?: return
 
-        val description = Messages.showInputDialog(
-            project,
-            "Enter widget description",
-            "Widget Description",
-            null
-        ) ?: return
+        val blueprint = editor.selectionModel.selectedText ?: run {
+            Messages.showErrorDialog(project, "No blueprint selected", "Error")
+            return
+        }
 
-        object : Task.Backgroundable(project, "Creating Widget", false) {
+        object : Task.Backgroundable(project, "Creating Code", false) {
             override fun run(indicator: ProgressIndicator) {
                 val prompt = buildString {
                     append("You're an expert Flutter/Dart coding assistant. Follow the user instructions carefully and to the letter.\n\n")
-                    append("Create a Flutter Widget from the following description: $description.\n")
-                    append("Output code in a single block")
+                    append("Create Flutter/Dart code for the following blueprint: $blueprint. Closely analyze the blueprint, see if any state management or architecture is specified and output complete functioning code in a single block.")
                 }
 
                 try {
@@ -44,19 +41,19 @@ class CreateWidgetFromDescription : AnAction() {
                         try {
                             PsiDocumentManager.getInstance(project).commitAllDocuments()
                             WriteCommandAction.runWriteCommandAction(project) {
-                                val position = editor.caretModel.offset
-                                editor.document.insertString(position, dartCode)
+                                val selection = editor.selectionModel
+                                editor.document.replaceString(selection.selectionStart, selection.selectionEnd, dartCode)
                             }
                             NotificationGroupManager.getInstance()
                                 .getNotificationGroup("FlutterGPT Success Notification")
-                                .createNotification("Widget created successfully!", NotificationType.INFORMATION)
+                                .createNotification("Code added successfully!", NotificationType.INFORMATION)
                                 .notify(project)
                         } catch (error: Exception) {
-                            Messages.showErrorDialog(project, "Failed to write code: ${error.message}", "Error")
+                            Messages.showErrorDialog(project, "Failed to add code: ${error.message}", "Error")
                         }
                     }
                 } catch (error: Exception) {
-                    Messages.showErrorDialog(project, "Failed to create widget: ${error.message}", "Error")
+                    Messages.showErrorDialog(project, "Failed to create code: ${error.message}", "Error")
                 }
             }
         }.queue()

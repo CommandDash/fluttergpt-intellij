@@ -14,27 +14,29 @@ import com.intellij.openapi.ui.Messages
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.WriteCommandAction
+import org.json.JSONObject
 
-class CreateWidgetFromDescription : AnAction() {
+class CreateRepoClassFromPostman : AnAction() {
     private val openAIRepo: OpenAIRepository = OpenAIRepository()
 
     override fun actionPerformed(e: AnActionEvent) {
         val editor = e.getData(PlatformCoreDataKeys.EDITOR) ?: return
         val project = e.project ?: return
 
-        val description = Messages.showInputDialog(
-            project,
-            "Enter widget description",
-            "Widget Description",
-            null
-        ) ?: return
+        val document = editor.document
+        val description: String = try {
+            JSONObject(document.text).toString()
+        } catch (error: Exception) {
+            Messages.showErrorDialog(project, "File content doesn't seem to be a JSON.", "Error")
+            return
+        }
 
-        object : Task.Backgroundable(project, "Creating Widget", false) {
+        object : Task.Backgroundable(project, "Generating API repository", false) {
             override fun run(indicator: ProgressIndicator) {
                 val prompt = buildString {
                     append("You're an expert Flutter/Dart coding assistant. Follow the user instructions carefully and to the letter.\n\n")
-                    append("Create a Flutter Widget from the following description: $description.\n")
-                    append("Output code in a single block")
+                    append("Create a Flutter API repository class from the following postman export:\n$description\n")
+                    append("Give class an appropriate name based on the name and info of the export\nBegin!")
                 }
 
                 try {
@@ -44,19 +46,19 @@ class CreateWidgetFromDescription : AnAction() {
                         try {
                             PsiDocumentManager.getInstance(project).commitAllDocuments()
                             WriteCommandAction.runWriteCommandAction(project) {
-                                val position = editor.caretModel.offset
-                                editor.document.insertString(position, dartCode)
+                                val range = document.createRangeMarker(0, document.textLength)
+                                editor.document.replaceString(range.startOffset, range.endOffset, dartCode)
                             }
                             NotificationGroupManager.getInstance()
                                 .getNotificationGroup("FlutterGPT Success Notification")
-                                .createNotification("Widget created successfully!", NotificationType.INFORMATION)
+                                .createNotification("API repository created successfully!", NotificationType.INFORMATION)
                                 .notify(project)
                         } catch (error: Exception) {
                             Messages.showErrorDialog(project, "Failed to write code: ${error.message}", "Error")
                         }
                     }
                 } catch (error: Exception) {
-                    Messages.showErrorDialog(project, "Failed to create widget: ${error.message}", "Error")
+                    Messages.showErrorDialog(project, "Failed to create API repository: ${error.message}", "Error")
                 }
             }
         }.queue()
