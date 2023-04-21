@@ -37,7 +37,7 @@
 
     <h3>Create</h3>
     <p align="center">
-        <img class="center" src="https://raw.githubusercontent.com/Welltested-AI/fluttergpt/main/media/refactor.png" alt="Refactoring Code using FlutterGPT" width="500"/>
+        <img class="center" src="https://raw.githubusercontent.com/Welltested-AI/fluttergpt-intellij/main/media/create.png" alt="Refactoring Code using FlutterGPT" width="500"/>
     </p>
 
     <h4>Widget from Description</h4>
@@ -74,7 +74,7 @@
 
     <h3>Refactor</h3>
     <p align="center">
-        <img class="center" src="https://raw.githubusercontent.com/Welltested-AI/fluttergpt/main/media/refactor.png" alt="Refactoring Code using FlutterGPT" width="500"/>
+        <img class="center" src="https://raw.githubusercontent.com/Welltested-AI/fluttergpt-intellij/main/media/refactor.png" alt="Refactoring Code using FlutterGPT" width="500"/>
     </p>
 
     <h4>From Instruction</h4>
