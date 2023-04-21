@@ -27,6 +27,8 @@
   <extensions defaultExtensionNs="com.intellij">
     <applicationConfigurable id="settings.fluttergpt" parentId="tools" displayName="FlutterGPT"
                              instance="ai.welltested.fluttergpt.utilities.SecretKeySettingsPage"/>
+    <notificationGroup id="FlutterGPT Success Notification"
+                       displayType="BALLOON"/>
   </extensions>
 
   <actions>

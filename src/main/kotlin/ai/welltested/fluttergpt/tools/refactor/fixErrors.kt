@@ -4,6 +4,8 @@ import ai.welltested.fluttergpt.repository.Message
 import ai.welltested.fluttergpt.repository.OpenAIRepository
 import ai.welltested.fluttergpt.utilities.extractDartCode
 import ai.welltested.fluttergpt.utilities.extractExplanation
+import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformCoreDataKeys
@@ -13,7 +15,6 @@ import com.intellij.openapi.ui.Messages
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.WriteCommandAction
-
 
 class FixErrors() : AnAction() {
     private val openAIRepo: OpenAIRepository = OpenAIRepository()
@@ -54,7 +55,10 @@ class FixErrors() : AnAction() {
                             WriteCommandAction.runWriteCommandAction(project) {
                                 editor.document.replaceString(editor.selectionModel.selectionStart, editor.selectionModel.selectionEnd, fixedCode)
                             }
-                            Messages.showInfoMessage(project, explanation, "Information")
+                            NotificationGroupManager.getInstance()
+                                .getNotificationGroup("FlutterGPT Success Notification")
+                                .createNotification("Errors resolved: \n $explanation", NotificationType.INFORMATION)
+                                .notify(project);
                         } catch (error: Exception){
                             Messages.showErrorDialog(project, "Failed to write code: ${error.message}", "Error")
                         }
