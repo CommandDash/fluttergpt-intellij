@@ -5,17 +5,128 @@
 
   <!-- Public plugin name should be written in Title Case.
        Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-  <name>Fluttergpt</name>
+  <name>FlutterGPT</name>
 
   <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-  <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="team@welltested.ai" url="https://welltested.ai">Welltested AI</vendor>
 
   <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
        Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
        Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
   <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+    <p align="center">
+        <a href="" rel="noopener">
+        <img height="200px" src="https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png" alt="Flutter-logo"></a>
+    </p>
+    <h1 align="center">FlutterGPT</h1>
+    <div align="center">
+        <h4>Use ChatGPT right inside your IDE to create, refactor and debug Flutter code</h4>
+    </div>
+
+    <p>
+        FlutterGPT is an open-source project aimed at creating a coding assistant specifically designed for Flutter Engineers. This assistant helps with creating, refactoring, and debugging code, making the development process more efficient and enjoyable.
+    </p>
+    <p>
+        We're starting with simple features to create, refactor, and debug with a vision to build a supercharged, free-to-use coding assistant built for and by Flutter Engineers.
+    </p>
+    <p>
+        We only use GPT3.5 because it's fast, highly accurate, cheap, and is available to all.
+    </p>
+
+    <h2>Features</h2>
+
+    <h3>Create</h3>
+    <p align="center">
+        <img class="center" src="https://raw.githubusercontent.com/Welltested-AI/fluttergpt/main/media/refactor.png" alt="Refactoring Code using FlutterGPT" width="500"/>
+    </p>
+
+    <h4>Widget from Description</h4>
+    <p>
+        Create flutter widgets based on the description you provide. Be as specific as you like.
+    </p>
+    <p>
+        <strong>Action:</strong> FlutterGPT Create: Widget from Description
+    </p>
+
+    <h4>Model Class from JSON</h4>
+    <p>
+        Create model classes from JSON with null safety in mind. You can also choose to generate Freezed or JsonSerializable modules
+    </p>
+    <p>
+        <strong>Action:</strong> FlutterGPT Create: Model Class from JSON
+    </p>
+
+    <h4>Repository Class from Postman Json</h4>
+    <p>
+        Convert your Postman collection exports JSON to API repository class
+    </p>
+    <p>
+        <strong>Action:</strong> FlutterGPT Create: API Repository from Postman JSON
+    </p>
+
+    <h4>Complete Code from BluePrint</h4>
+    <p>
+        Get complete code from a blueprint of a class or function with the behavior of functions, state management, and architecture of your choice.
+    </p>
+    <p>
+        <strong>Action:</strong> FlutterGPT Create: Code from Blueprint
+    </p>
+
+    <h3>Refactor</h3>
+    <p align="center">
+        <img class="center" src="https://raw.githubusercontent.com/Welltested-AI/fluttergpt/main/media/refactor.png" alt="Refactoring Code using FlutterGPT" width="500"/>
+    </p>
+
+    <h4>From Instruction</h4>
+    <p>
+        Refactor widgets and logic both with this command.
+    </p>
+    <p>
+        <strong>Action:</strong> FlutterGPT Refactor: From Instructions
+    </p>
+
+    <h4>Fix Errors</h4>
+    <p>
+        Pass your runtime errors and get fixed code back.
+    </p>
+    <p>
+        <strong>Action:</strong> FlutterGPT Refactor: Fix Errors
+    </p>
+
+    <h2>Requirements</h2>
+    <ol>
+        <li>You'll need an <a href="https://platform.openai.com">OpenAI account</a> with a valid API key. For more information on obtaining an API key, please visit the <a href="https://platform.openai.com/docs/">OpenAI API documentation</a>.</li>
+    </ol>
+
+    <h2>Getting Started</h2>
+    <ol>
+        <li>After installing the plugin, please navigate to IntelliJ settings -> Tools -> FlutterGPT -> Add Secret Key from here <a href="https://platform.openai.com/account/api-keys">OPENAI API Key</a>.</li>
+        <li>To get started, select any piece of your dart code, open tools and you'll find all the available create and refactor actions. Details are provided above.</li>
+    </ol>
+    <p><i>
+        Please Note: Using OpenAI APIs will incur charges. From our observations, running 500 create widget from description costs only 1$.</i>
+    </p>
+
+    <h2>Known Issues</h2>
+    <p>
+        This is the beta version and can be unstable. We encourage users to create fix PRs.
+    </p>
+
+    <h2>Release Notes</h2>
+    <h3>1.0.0</h3>
+    <p>
+        First version of FlutterGPT!
+    </p>
+
+    <h2>Contributing</h2>
+    <p>
+        We welcome contributions from the community. If you'd like to contribute to the project, report issues, or suggest new features, please follow the guidelines in our <a href="https://github.com/Welltested-AI/fluttergpt/blob/main/CONTRIBUTING.md"> CONTRIBUTING.md</a> file or reach out to us through <a href="mailto:team@welltested.ai">contact information</a>.
+    </p>
+
+    <h2>License</h2>
+    <p>
+        FlutterGPT is released under the Apache License Version 2.0. See the <a href="https://github.com/Welltested-AI/fluttergpt/blob/main/LICENSE">LICENSE file</a> for more information.
+    </p>
   ]]></description>
 
   <!-- Product and plugin compatibility requirements.
@@ -38,24 +149,24 @@
       <add-to-group group-id="ToolsMenu" anchor="first"/>
     </action>
     <action id="ai.welltested.fluttergpt.tools.refactor.RefactorFromInstructions"
-            class="ai.welltested.fluttergpt.tools.refactor.RefactorFromInstructions" text="Refactor From Instructions"
+            class="ai.welltested.fluttergpt.tools.refactor.RefactorFromInstructions" text="Refactor: From Instructions"
             description="Make any kind of refactors from instructions">
       <add-to-group group-id="ToolsMenu" anchor="first"/>
     </action>
     <action id="ai.welltested.fluttergpt.tools.create.CreateModelClass"
-            class="ai.welltested.fluttergpt.tools.create.CreateModelClass" text="Create Model Class From JSON"
+            class="ai.welltested.fluttergpt.tools.create.CreateModelClass" text="Create: Model Class From JSON"
             description="Input your JSON data and get a model class.">
       <add-to-group group-id="ToolsMenu" anchor="first"/>
     </action>
 
     <action id="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"
             class="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"
-            text="API Repository from Postman JSON" description="Paste JSON to get a full repository class back.">
+            text="Create: API Repository from Postman JSON" description="Paste JSON to get a full repository class back.">
       <add-to-group group-id="ToolsMenu" anchor="first"/>
     </action>
     <action id="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint"
             class="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint" text="Code from Blueprint"
-            description="Create full fledged classes and functions from blueprint">
+            description="Create: Code from Blueprint">
       <add-to-group group-id="ToolsMenu" anchor="first"/>
     </action>
     <action id="ai.welltested.fluttergpt.tools.create.CreateWidgetFromDescription"
