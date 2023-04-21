@@ -1,7 +1,7 @@
 package ai.welltested.fluttergpt.repository
 
-import ai.welltested.fluttergpt.utilities.SecretKeyConfig
-import ai.welltested.fluttergpt.utilities.SecretKeyListener
+import ai.welltested.fluttergpt.utilities.configManager.SecretKeyConfig
+import ai.welltested.fluttergpt.utilities.configManager.SecretKeyListener
 import java.net.HttpURLConnection
 import java.net.URL
 import com.google.gson.Gson

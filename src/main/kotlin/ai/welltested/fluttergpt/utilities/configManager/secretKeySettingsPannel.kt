@@ -1,4 +1,4 @@
-package ai.welltested.fluttergpt.utilities
+package ai.welltested.fluttergpt.utilities.configManager
 
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout

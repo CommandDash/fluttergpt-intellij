@@ -1,4 +1,4 @@
-package ai.welltested.fluttergpt.utilities
+package ai.welltested.fluttergpt.utilities.configManager
 
 import com.intellij.openapi.components.*
 
