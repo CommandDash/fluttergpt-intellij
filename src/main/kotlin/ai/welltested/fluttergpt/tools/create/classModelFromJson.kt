@@ -3,21 +3,23 @@ package ai.welltested.fluttergpt.tools.create
 import ai.welltested.fluttergpt.repository.Message
 import ai.welltested.fluttergpt.repository.OpenAIRepository
 import ai.welltested.fluttergpt.utilities.extractDartCode
+import com.intellij.icons.AllIcons
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformCoreDataKeys
-import com.intellij.openapi.progress.ProgressIndicator
-import com.intellij.openapi.progress.Task
-import com.intellij.openapi.ui.Messages
-import com.intellij.psi.PsiDocumentManager
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.WriteCommandAction
+import com.intellij.openapi.progress.ProgressIndicator
+import com.intellij.openapi.progress.Task
 import com.intellij.openapi.ui.InputValidator
+import com.intellij.openapi.ui.Messages
+import com.intellij.psi.PsiDocumentManager
 import org.json.JSONObject
 
-class CreateModelClass : AnAction() {
+
+class CreateModelClass : AnAction("Model Class From JSON") {
     private val openAIRepo: OpenAIRepository = OpenAIRepository()
 
     override fun actionPerformed(e: AnActionEvent) {

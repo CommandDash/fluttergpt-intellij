@@ -136,43 +136,61 @@
   <!-- Extension points defined by the plugin.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
   <extensions defaultExtensionNs="com.intellij">
+      <postStartupActivity implementation="ai.welltested.fluttergpt.PluginStartupActivity"/>
     <applicationConfigurable id="settings.fluttergpt" parentId="tools" displayName="FlutterGPT"
                              instance="ai.welltested.fluttergpt.utilities.configManager.SecretKeySettingsPage"/>
     <notificationGroup id="FlutterGPT Success Notification"
                        displayType="BALLOON"/>
+
   </extensions>
 
   <actions>
-    <action id="ai.welltested.fluttergpt.tools.refactor.FixErrors"
-            class="ai.welltested.fluttergpt.tools.refactor.FixErrors" text="Refactor: Fix Errors"
-            description="Get fixed code for errors">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-    </action>
-    <action id="ai.welltested.fluttergpt.tools.refactor.RefactorFromInstructions"
-            class="ai.welltested.fluttergpt.tools.refactor.RefactorFromInstructions" text="Refactor: From Instructions"
-            description="Make any kind of refactors from instructions">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-    </action>
-    <action id="ai.welltested.fluttergpt.tools.create.CreateModelClass"
-            class="ai.welltested.fluttergpt.tools.create.CreateModelClass" text="Create: Model Class From JSON"
-            description="Input your JSON data and get a model class.">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-    </action>
+      <group id="FlutterGPT_Create">
+          <group id="FlutterGPTActionGroup" class="com.intellij.openapi.actionSystem.DefaultActionGroup" popup="true" text="FlutterGPT Create" >
+          </group>
+          <add-to-group group-id="EditorPopupMenu"  />
 
-    <action id="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"
-            class="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"
-            text="Create: API Repository from Postman JSON" description="Paste JSON to get a full repository class back.">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-    </action>
-    <action id="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint"
-            class="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint" text="Code from Blueprint"
-            description="Create: Code from Blueprint">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-    </action>
-    <action id="ai.welltested.fluttergpt.tools.create.CreateWidgetFromDescription"
-            class="ai.welltested.fluttergpt.tools.create.CreateWidgetFromDescription"
-            text="Create: Widget from Description" description="Create custom widgets from specialized instructions.">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-    </action>
+
+      </group>
+      <group id="FlutterGPT_Refactor">
+          <group id="FlutterGPTRefactorActionGroup" class="com.intellij.openapi.actionSystem.DefaultActionGroup" popup="true" text="FlutterGPT Refactor" >
+          </group>
+          <add-to-group group-id="EditorPopupMenu"  />
+          <separator/>
+
+      </group>
+
   </actions>
 </idea-plugin>
+
+    <!--    <action id="ai.welltested.fluttergpt.tools.refactor.FixErrors"-->
+    <!--            class="ai.welltested.fluttergpt.tools.refactor.FixErrors" text="Refactor: Fix Errors"-->
+    <!--            description="Get fixed code for errors">-->
+    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+    <!--    </action>-->
+    <!--    <action id="ai.welltested.fluttergpt.tools.refactor.RefactorFromInstructions"-->
+    <!--            class="ai.welltested.fluttergpt.tools.refactor.RefactorFromInstructions" text="Refactor: From Instructions"-->
+    <!--            description="Make any kind of refactors from instructions">-->
+    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+    <!--    </action>-->
+    <!--    <action id="ai.welltested.fluttergpt.tools.create.CreateModelClass"-->
+    <!--            class="ai.welltested.fluttergpt.tools.create.CreateModelClass" text="Create: Model Class From JSON"-->
+    <!--            description="Input your JSON data and get a model class.">-->
+    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+    <!--    </action>-->
+
+    <!--    <action id="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"-->
+    <!--            class="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"-->
+    <!--            text="Create: API Repository from Postman JSON" description="Paste JSON to get a full repository class back.">-->
+    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+    <!--    </action>-->
+    <!--    <action id="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint"-->
+    <!--            class="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint" text="Code from Blueprint"-->
+    <!--            description="Create: Code from Blueprint">-->
+    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+    <!--    </action>-->
+    <!--    <action id="ai.welltested.fluttergpt.tools.create.CreateWidgetFromDescription"-->
+    <!--            class="ai.welltested.fluttergpt.tools.create.CreateWidgetFromDescription"-->
+    <!--            text="Create: Widget from Description" description="Create custom widgets from specialized instructions.">-->
+    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+    <!--    </action>-->
