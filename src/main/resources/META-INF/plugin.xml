@@ -163,34 +163,3 @@
   </actions>
 </idea-plugin>
 
-    <!--    <action id="ai.welltested.fluttergpt.tools.refactor.FixErrors"-->
-    <!--            class="ai.welltested.fluttergpt.tools.refactor.FixErrors" text="Refactor: Fix Errors"-->
-    <!--            description="Get fixed code for errors">-->
-    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
-    <!--    </action>-->
-    <!--    <action id="ai.welltested.fluttergpt.tools.refactor.RefactorFromInstructions"-->
-    <!--            class="ai.welltested.fluttergpt.tools.refactor.RefactorFromInstructions" text="Refactor: From Instructions"-->
-    <!--            description="Make any kind of refactors from instructions">-->
-    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
-    <!--    </action>-->
-    <!--    <action id="ai.welltested.fluttergpt.tools.create.CreateModelClass"-->
-    <!--            class="ai.welltested.fluttergpt.tools.create.CreateModelClass" text="Create: Model Class From JSON"-->
-    <!--            description="Input your JSON data and get a model class.">-->
-    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
-    <!--    </action>-->
-
-    <!--    <action id="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"-->
-    <!--            class="ai.welltested.fluttergpt.tools.create.CreateRepoClassFromPostman"-->
-    <!--            text="Create: API Repository from Postman JSON" description="Paste JSON to get a full repository class back.">-->
-    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
-    <!--    </action>-->
-    <!--    <action id="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint"-->
-    <!--            class="ai.welltested.fluttergpt.tools.create.CodeFromBlueprint" text="Code from Blueprint"-->
-    <!--            description="Create: Code from Blueprint">-->
-    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
-    <!--    </action>-->
-    <!--    <action id="ai.welltested.fluttergpt.tools.create.CreateWidgetFromDescription"-->
-    <!--            class="ai.welltested.fluttergpt.tools.create.CreateWidgetFromDescription"-->
-    <!--            text="Create: Widget from Description" description="Create custom widgets from specialized instructions.">-->
-    <!--      <add-to-group group-id="ToolsMenu" anchor="first"/>-->
-    <!--    </action>-->
