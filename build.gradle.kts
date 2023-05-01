@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "ai.welltested"
-version = "1.0-SNAPSHOT"
+version = "1.1.2-SNAPSHOT"
 
 repositories {
   mavenCentral()
@@ -31,7 +31,7 @@ tasks {
   }
 
   patchPluginXml {
-    sinceBuild.set("222")
+    sinceBuild.set("213.*")
     untilBuild.set("232.*")
   }
 
