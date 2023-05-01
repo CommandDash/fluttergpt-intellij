@@ -16,7 +16,7 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.WriteCommandAction
 import org.json.JSONObject
 
-class CreateRepoClassFromPostman : AnAction() {
+class CreateRepoClassFromPostman : AnAction("API Repository from Postman JSON") {
     private val openAIRepo: OpenAIRepository = OpenAIRepository()
 
     override fun actionPerformed(e: AnActionEvent) {

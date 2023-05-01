@@ -1,10 +1,1 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32.0845 7.94025V4H24.0203V7.9896H16.029V4H7.91553V7.94025H4V36H16.0044V32.0045C16.0058 30.9457 16.4274 29.9308 17.1766 29.1826C17.9258 28.4345 18.9412 28.0143 20 28.0143C21.0588 28.0143 22.0743 28.4345 22.8234 29.1826C23.5726 29.9308 23.9942 30.9457 23.9956 32.0045V36H36V7.94025H32.0845Z" fill="url(#paint0_linear)"/>
-    <defs>
-        <linearGradient id="paint0_linear" x1="2.94192" y1="4.89955" x2="37.7772" y2="39.7345" gradientUnits="userSpaceOnUse">
-            <stop offset="0.15937" stop-color="#3BEA62"/>
-            <stop offset="0.5404" stop-color="#3C99CC"/>
-            <stop offset="0.93739" stop-color="#6B57FF"/>
-        </linearGradient>
-    </defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="512px" height="512px"><linearGradient id="gFTOxFpGMtrTwKmyJmDVma" x1="34.31" x2="21.223" y1="47.31" y2="34.223" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0176d0"/><stop offset=".454" stop-color="#0275ce"/><stop offset=".617" stop-color="#0472c7"/><stop offset=".733" stop-color="#076bbc"/><stop offset=".827" stop-color="#0d63ab"/><stop offset=".907" stop-color="#135895"/><stop offset=".933" stop-color="#16538c"/></linearGradient><polygon fill="url(#gFTOxFpGMtrTwKmyJmDVma)" points="37,44 25,44 14,33 20,27"/><polygon fill="#50e6ff" points="5,24 25,4 37,4 11,30"/><polygon fill="#50e6ff" points="37,22 20,39 14,33 25,22"/><rect width="8.485" height="8.485" x="15.757" y="28.757" fill="#35c1f1" transform="rotate(-45.001 20 33)"/></svg>

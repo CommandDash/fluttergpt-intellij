@@ -7,6 +7,7 @@ import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.actionSystem.PlatformCoreDataKeys
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.Task
@@ -15,7 +16,7 @@ import com.intellij.psi.PsiDocumentManager
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.WriteCommandAction
 
-class RefactorFromInstructions : AnAction() {
+class RefactorFromInstructions : AnAction("From Instructions") {
     private val openAIRepo: OpenAIRepository = OpenAIRepository()
 
     override fun actionPerformed(e: AnActionEvent) {
@@ -65,5 +66,15 @@ class RefactorFromInstructions : AnAction() {
                 }
             }
         }.queue()
+    }
+
+    override fun update(e: AnActionEvent) {
+        val editor = e.getData(CommonDataKeys.EDITOR)
+        val selectedText = editor?.selectionModel?.selectedText
+
+        // Set visibility and enabled state based on whether code is selected
+        e.presentation.isVisible = !selectedText.isNullOrBlank()
+        e.presentation.isEnabled = !selectedText.isNullOrBlank()
+        super.update(e)
     }
 }
