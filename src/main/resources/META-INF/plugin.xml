@@ -139,7 +139,12 @@
     <applicationConfigurable id="settings.fluttergpt" parentId="tools" displayName="FlutterGPT"
                              instance="ai.welltested.fluttergpt.utilities.configManager.SecretKeySettingsPage"/>
     <notificationGroup id="FlutterGPT Success Notification"
-                       displayType="BALLOON"/>
+    displayType="BALLOON"/>
+
+    <!--  Register IntentionActions-->
+    <intentionAction>
+      <className>ai.welltested.fluttergpt.tools.refactor.OptimizeFunction</className>
+    </intentionAction>
   </extensions>
 
   <actions>
